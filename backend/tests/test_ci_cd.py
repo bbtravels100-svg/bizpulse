@@ -92,3 +92,6 @@ def test_ci_workflow_container_integration_checks():
     assert "/api/health" in steps_str
     assert "10001" in steps_str, "Must verify UID 10001 (non-root)"
     assert "restart" in steps_str, "Must verify container restart"
+    assert "COOKIE_SECURE=true" in steps_str, "Must enforce COOKIE_SECURE=true in CI production environment"
+    assert "Dump Container Logs on Failure" in steps_str, "Must include diagnostic log dumping on failure"
+    assert "exec -T backend" in steps_str, "Must verify backend health from within container network"

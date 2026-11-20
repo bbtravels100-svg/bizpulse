@@ -162,7 +162,7 @@ jobs:
           JWT_SECRET_KEY=ci_integration_jwt_secret_key_minimum_32_characters_123456
           JWT_ALGORITHM=HS256
           JWT_ACCESS_TOKEN_EXPIRE_MINUTES=60
-          COOKIE_SECURE=false
+          COOKIE_SECURE=true
           ALLOW_REGISTRATION=false
           AUTH_PROVISIONING_KEY=ci_integration_provisioning_key_24_chars_min
           LOG_LEVEL=INFO
@@ -190,7 +190,7 @@ jobs:
 
       - name: Verify Backend Minimal Health Endpoint
         run: |
-          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/api/health)
+          HTTP_STATUS=$(docker compose --env-file .env.ci exec -T backend curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/api/health)
           echo "Backend /api/health returned HTTP $HTTP_STATUS"
           [ "$HTTP_STATUS" -eq 200 ] || exit 1
 
@@ -216,19 +216,27 @@ jobs:
 
       - name: Verify Non-Root User Execution
         run: |
-          BACKEND_UID=$(docker compose exec -T backend id -u)
-          BACKEND_USER=$(docker compose exec -T backend whoami)
+          BACKEND_UID=$(docker compose --env-file .env.ci exec -T backend id -u)
+          BACKEND_USER=$(docker compose --env-file .env.ci exec -T backend whoami)
           echo "Backend container runs as: $BACKEND_USER (UID: $BACKEND_UID)"
           [ "$BACKEND_UID" -eq 10001 ] || exit 1
 
       - name: Verify Volume Persistence Across Container Restart
         run: |
           echo "Restarting containers..."
-          docker compose restart
+          docker compose --env-file .env.ci restart
           sleep 5
           HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:80/api/health)
           echo "Backend returned HTTP $HTTP_STATUS after restart"
           [ "$HTTP_STATUS" -eq 200 ] || exit 1
+
+      - name: Dump Container Logs on Failure
+        if: failure()
+        run: |
+          echo "=== BACKEND CONTAINER LOGS ==="
+          docker compose --env-file .env.ci logs backend || true
+          echo "=== FRONTEND CONTAINER LOGS ==="
+          docker compose --env-file .env.ci logs frontend || true
 
       - name: Teardown and Clean Up Containers & Volumes
         if: always()
