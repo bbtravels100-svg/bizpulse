@@ -14,12 +14,12 @@ services:
       - BACKUP_DIR=/app/data/backups
       - DATA_DIR=/app/data
       - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost,http://localhost:80,http://127.0.0.1,http://127.0.0.1:80}
-      - JWT_SECRET_KEY=${JWT_SECRET_KEY:?Error: JWT_SECRET_KEY must be provided}
+      - "JWT_SECRET_KEY=${JWT_SECRET_KEY:?Error: JWT_SECRET_KEY must be provided}"
       - JWT_ALGORITHM=${JWT_ALGORITHM:-HS256}
       - JWT_ACCESS_TOKEN_EXPIRE_MINUTES=${JWT_ACCESS_TOKEN_EXPIRE_MINUTES:-60}
       - COOKIE_SECURE=${COOKIE_SECURE:-true}
       - ALLOW_REGISTRATION=${ALLOW_REGISTRATION:-false}
-      - AUTH_PROVISIONING_KEY=${AUTH_PROVISIONING_KEY:?Error: AUTH_PROVISIONING_KEY must be provided}
+      - "AUTH_PROVISIONING_KEY=${AUTH_PROVISIONING_KEY:?Error: AUTH_PROVISIONING_KEY must be provided}"
       - GEMINI_API_KEY=${GEMINI_API_KEY:-}
       - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.5-flash}
       - LOG_LEVEL=${LOG_LEVEL:-INFO}

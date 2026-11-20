@@ -269,7 +269,7 @@ jobs:
           push: false
 
       - name: Run Trivy Vulnerability Scanner on Backend
-        uses: aquasecurity/trivy-action@0.29.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: "bizpulse-backend:scan"
           format: "table"
@@ -278,7 +278,7 @@ jobs:
           exit-code: "0"
 
       - name: Run Trivy Vulnerability Scanner on Frontend
-        uses: aquasecurity/trivy-action@0.29.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: "bizpulse-frontend:scan"
           format: "table"
@@ -287,7 +287,7 @@ jobs:
           exit-code: "0"
 
       - name: Generate Machine-Readable JSON Scan Reports
-        uses: aquasecurity/trivy-action@0.29.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: "bizpulse-backend:scan"
           format: "json"

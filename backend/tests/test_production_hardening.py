@@ -289,3 +289,12 @@ def test_docker_compose_volume_and_security_specifications():
     assert "unless-stopped" in content, "Must configure restart policies"
     assert "JWT_SECRET_KEY" in content, "Must interpolate JWT_SECRET_KEY"
     assert "bizpulse_dev_" not in content, "Must not contain hardcoded development secrets"
+
+    # Verify YAML parsing of environment list does not contain accidental mapping types
+    import yaml
+    compose_data = yaml.safe_load(content)
+    backend_env = compose_data["services"]["backend"]["environment"]
+    for idx, env_entry in enumerate(backend_env):
+        assert isinstance(env_entry, str), (
+            f"backend.environment[{idx}] parsed as {type(env_entry).__name__} instead of str: {env_entry}"
+        )

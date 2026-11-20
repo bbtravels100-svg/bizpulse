@@ -75,7 +75,7 @@ def test_ci_workflow_runner_and_action_pinning():
     trivy_job = jobs.get("security-vulnerability-scan")
     assert trivy_job is not None
     steps_str = yaml.dump(trivy_job.get("steps", []))
-    assert "aquasecurity/trivy-action" in steps_str
+    assert "aquasecurity/trivy-action@v0.36.0" in steps_str, "Must use official aquasecurity/trivy-action@v0.36.0"
     assert "CRITICAL" in steps_str
 
 
