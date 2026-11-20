@@ -1,0 +1,71 @@
+date,product_id,product_name,units_sold,revenue
+2026-11-01,PROD_001,Ultra Ergonomic Desk Chair,16,5600.00
+2026-11-01,PROD_002,Noise-Cancelling Headphones,18,3240.00
+2026-11-01,PROD_003,Smart Fitness Watch,12,1440.00
+2026-11-01,PROD_004,Compact Mechanical Keyboard,10,950.00
+2026-11-01,PROD_005,Heavy Duty Gaming Monitor Stand,20,900.00
+2026-11-02,PROD_001,Ultra Ergonomic Desk Chair,15,5250.00
+2026-11-02,PROD_002,Noise-Cancelling Headphones,17,3060.00
+2026-11-02,PROD_003,Smart Fitness Watch,13,1560.00
+2026-11-02,PROD_004,Compact Mechanical Keyboard,11,1045.00
+2026-11-02,PROD_005,Heavy Duty Gaming Monitor Stand,21,945.00
+2026-11-03,PROD_001,Ultra Ergonomic Desk Chair,17,5950.00
+2026-11-03,PROD_002,Noise-Cancelling Headphones,19,3420.00
+2026-11-03,PROD_003,Smart Fitness Watch,11,1320.00
+2026-11-03,PROD_004,Compact Mechanical Keyboard,10,950.00
+2026-11-03,PROD_005,Heavy Duty Gaming Monitor Stand,20,900.00
+2026-11-04,PROD_001,Ultra Ergonomic Desk Chair,16,5600.00
+2026-11-04,PROD_002,Noise-Cancelling Headphones,18,3240.00
+2026-11-04,PROD_003,Smart Fitness Watch,12,1440.00
+2026-11-04,PROD_004,Compact Mechanical Keyboard,10,950.00
+2026-11-04,PROD_005,Heavy Duty Gaming Monitor Stand,21,945.00
+2026-11-05,PROD_001,Ultra Ergonomic Desk Chair,15,5250.00
+2026-11-05,PROD_002,Noise-Cancelling Headphones,18,3240.00
+2026-11-05,PROD_003,Smart Fitness Watch,13,1560.00
+2026-11-05,PROD_004,Compact Mechanical Keyboard,11,1045.00
+2026-11-05,PROD_005,Heavy Duty Gaming Monitor Stand,20,900.00
+2026-11-06,PROD_001,Ultra Ergonomic Desk Chair,17,5950.00
+2026-11-06,PROD_002,Noise-Cancelling Headphones,19,3420.00
+2026-11-06,PROD_003,Smart Fitness Watch,12,1440.00
+2026-11-06,PROD_004,Compact Mechanical Keyboard,10,950.00
+2026-11-06,PROD_005,Heavy Duty Gaming Monitor Stand,21,945.00
+2026-11-07,PROD_001,Ultra Ergonomic Desk Chair,15,5250.00
+2026-11-07,PROD_002,Noise-Cancelling Headphones,17,3060.00
+2026-11-07,PROD_003,Smart Fitness Watch,12,1440.00
+2026-11-07,PROD_004,Compact Mechanical Keyboard,9,855.00
+2026-11-07,PROD_005,Heavy Duty Gaming Monitor Stand,22,990.00
+2026-11-08,PROD_001,Ultra Ergonomic Desk Chair,13,4550.00
+2026-11-08,PROD_002,Noise-Cancelling Headphones,15,2700.00
+2026-11-08,PROD_003,Smart Fitness Watch,10,1200.00
+2026-11-08,PROD_004,Compact Mechanical Keyboard,8,760.00
+2026-11-08,PROD_005,Heavy Duty Gaming Monitor Stand,17,765.00
+2026-11-09,PROD_001,Ultra Ergonomic Desk Chair,12,4200.00
+2026-11-09,PROD_002,Noise-Cancelling Headphones,14,2520.00
+2026-11-09,PROD_003,Smart Fitness Watch,11,1320.00
+2026-11-09,PROD_004,Compact Mechanical Keyboard,9,855.00
+2026-11-09,PROD_005,Heavy Duty Gaming Monitor Stand,16,720.00
+2026-11-10,PROD_001,Ultra Ergonomic Desk Chair,14,4900.00
+2026-11-10,PROD_002,Noise-Cancelling Headphones,16,2880.00
+2026-11-10,PROD_003,Smart Fitness Watch,9,1080.00
+2026-11-10,PROD_004,Compact Mechanical Keyboard,8,760.00
+2026-11-10,PROD_005,Heavy Duty Gaming Monitor Stand,18,810.00
+2026-11-11,PROD_001,Ultra Ergonomic Desk Chair,13,4550.00
+2026-11-11,PROD_002,Noise-Cancelling Headphones,15,2700.00
+2026-11-11,PROD_003,Smart Fitness Watch,10,1200.00
+2026-11-11,PROD_004,Compact Mechanical Keyboard,8,760.00
+2026-11-11,PROD_005,Heavy Duty Gaming Monitor Stand,16,720.00
+2026-11-12,PROD_001,Ultra Ergonomic Desk Chair,12,4200.00
+2026-11-12,PROD_002,Noise-Cancelling Headphones,15,2700.00
+2026-11-12,PROD_003,Smart Fitness Watch,11,1320.00
+2026-11-12,PROD_004,Compact Mechanical Keyboard,9,855.00
+2026-11-12,PROD_005,Heavy Duty Gaming Monitor Stand,17,765.00
+2026-11-13,PROD_001,Ultra Ergonomic Desk Chair,14,4900.00
+2026-11-13,PROD_002,Noise-Cancelling Headphones,15,2700.00
+2026-11-13,PROD_003,Smart Fitness Watch,10,1200.00
+2026-11-13,PROD_004,Compact Mechanical Keyboard,8,760.00
+2026-11-13,PROD_005,Heavy Duty Gaming Monitor Stand,18,810.00
+2026-11-14,PROD_001,Ultra Ergonomic Desk Chair,12,4200.00
+2026-11-14,PROD_002,Noise-Cancelling Headphones,14,2520.00
+2026-11-14,PROD_003,Smart Fitness Watch,10,1200.00
+2026-11-14,PROD_004,Compact Mechanical Keyboard,9,855.00
+2026-11-14,PROD_005,Heavy Duty Gaming Monitor Stand,17,765.00

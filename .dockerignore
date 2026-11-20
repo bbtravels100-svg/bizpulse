@@ -1,0 +1,35 @@
+# Root Dockerignore for BizPulse
+.git
+.github
+.vscode
+.idea
+*.swp
+*.swo
+
+# Environment variables & secrets
+.env
+.env*.local
+*.pem
+*.key
+*.cert
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+backend/tests/
+backend/.pytest_cache/
+
+# Node artifacts
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Local persistent SQLite databases
+*.db
+*.db-wal
+*.db-shm
+backend/data/*.db*
+backend/data/backups/

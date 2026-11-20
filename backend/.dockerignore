@@ -1,0 +1,33 @@
+# Ignore Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.venv/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# Ignore test directories and coverage reports
+tests/
+.coverage
+htmlcov/
+pytest.ini
+
+# Ignore local secrets and runtime SQLite databases
+.env
+.env.*
+*.db
+*.db-wal
+*.db-shm
+data/bizpulse.db*
+data/backups/
+
+# Ignore Git
+.git
+.gitignore
+.github/

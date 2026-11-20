@@ -1,0 +1,72 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: bizpulse-backend:latest
+    container_name: bizpulse-backend
+    restart: unless-stopped
+    environment:
+      - ENVIRONMENT=production
+      - HOST=0.0.0.0
+      - PORT=8000
+      - DATABASE_PATH=/app/data/bizpulse.db
+      - BACKUP_DIR=/app/data/backups
+      - DATA_DIR=/app/data
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost,http://localhost:80,http://127.0.0.1,http://127.0.0.1:80}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:?Error: JWT_SECRET_KEY must be provided}
+      - JWT_ALGORITHM=${JWT_ALGORITHM:-HS256}
+      - JWT_ACCESS_TOKEN_EXPIRE_MINUTES=${JWT_ACCESS_TOKEN_EXPIRE_MINUTES:-60}
+      - COOKIE_SECURE=${COOKIE_SECURE:-true}
+      - ALLOW_REGISTRATION=${ALLOW_REGISTRATION:-false}
+      - AUTH_PROVISIONING_KEY=${AUTH_PROVISIONING_KEY:?Error: AUTH_PROVISIONING_KEY must be provided}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.5-flash}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - TRUST_PROXY_HEADERS=true
+      - TRUSTED_PROXIES=frontend,127.0.0.1
+    volumes:
+      # Persistent volume for SQLite database, WAL files, automated backups, and uploaded CSV datasets
+      - bizpulse_data:/app/data
+    networks:
+      - bizpulse-net
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/api/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Empty string defaults API calls to the same origin (/api/) reverse-proxied by Nginx
+        - VITE_API_BASE_URL=${VITE_API_BASE_URL:-}
+    image: bizpulse-frontend:latest
+    container_name: bizpulse-frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-80}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - bizpulse-net
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+volumes:
+  # Isolated named volume preserving application database, audit history, and uploads across container restarts
+  bizpulse_data:
+    driver: local
+
+networks:
+  # Private internal bridge network shielding backend from public exposition
+  bizpulse-net:
+    driver: bridge

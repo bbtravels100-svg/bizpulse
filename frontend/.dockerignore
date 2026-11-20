@@ -1,0 +1,18 @@
+# Ignore Node and build artifacts
+node_modules/
+dist/
+.pnp
+.pnp.js
+coverage/
+*.tsbuildinfo
+*.log
+
+# Ignore local environment files and secrets
+.env
+.env.*
+.env.local
+
+# Ignore Git
+.git
+.gitignore
+.github/
